@@ -1,0 +1,18 @@
+{% if pagination.multi_page %}
+<nav class="justify-center my-8" aria-labelledby="pagination">
+    <h2 id="pagination" class="sr-only">Pagination {{ pagination.opts.verbose_name_plural }}</h2>
+    <ul class="flex justify-center gap-2 transition-colors duration-200 ease-out ml-0">
+        <li>
+            <a class="py-[5px] px-[10px] mr-2 no-underline rounded-lg border-1 border-transparent text-base hover:border-base-orange-400 {% if previous_page_link == '' %}text-base-gray-400 hover:border-transparent cursor-default{% endif %}" href="{{ previous_page_link }}" rel="prev" aria-label="Previous page">
+                <span class="arrow-left inline-flex items-center">Previous</span>
+            </a>
+        </li>
+        {{ page_elements }}
+        <li>
+            <a class="py-[5px] px-[10px] ml-2 no-underline rounded-lg border-1 border-transparent text-base hover:border-base-orange-400 {% if next_page_link == '' %}text-base-gray-400 hover:border-transparent cursor-default{% endif %}" href="{{ next_page_link }}" rel="next" aria-label="Next page">
+                <span class="arrow-right inline-flex items-center">Next</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+{% endif %}
